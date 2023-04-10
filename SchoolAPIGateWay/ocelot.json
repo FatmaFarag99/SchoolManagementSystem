@@ -1,4 +1,7 @@
 {
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7019"
+  },
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/StudentAttendance",
@@ -6,7 +9,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44324
+          "Port": 7244
         }
       ],
       "UpstreamPathTemplate": "/apigateway/AttendanceService",
@@ -18,7 +21,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44320
+          "Port": 7012
 
         }
       ],

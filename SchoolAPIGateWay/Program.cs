@@ -5,6 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 //Ocelot
+builder.WebHost.ConfigureAppConfiguration((hostingContext, config) =>
+{
+    config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
+    config.AddJsonFile("ocelot.json", true, true)
+    .AddEnvironmentVariables();
+});
 
 IConfiguration configuration = new ConfigurationBuilder()
                             .AddJsonFile("ocelot.json")
