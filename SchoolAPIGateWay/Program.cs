@@ -5,14 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 //Ocelot
-builder.WebHost.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
-    config.AddJsonFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
-    .AddEnvironmentVariables();
-});
 
-builder.Services.AddOcelot();
+IConfiguration configuration = new ConfigurationBuilder()
+                            .AddJsonFile("ocelot.json")
+                            .Build();
+
+builder.Services.AddOcelot(configuration);
 
 // Add services to the container.
 
